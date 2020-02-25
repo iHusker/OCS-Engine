@@ -1,14 +1,13 @@
 #pragma once
-#include <map>
-#include <typeindex>
-#include <algorithm>
-
+#include "Resource.h"
 #include "Component.h"
 
 class Object
 {
 public:
-	Object(std::type_index index) : index(index) {}
+	Object(std::type_index index) : index(index) {
+
+	}
 
 	~Object()
 	{
@@ -20,9 +19,9 @@ public:
 		for (auto& component : components) component.second->Process(deltaTime);
 	}
 
-	void Render()
+	void Render(SDL_Renderer* renderer)
 	{
-		for (auto& component : components) component.second->Render();
+		for (auto& component : components) component.second->Render(renderer);
 	}
 
 	template <typename T, typename... A> void AddComponent(A&& ... a)
@@ -33,7 +32,7 @@ public:
 		if (component->Link())
 		{
 
-			std::cout << "(" << index.hash_code() << ") ADDED: " << typeid(T).name() << std::endl;
+			std::cout << "(" << index.hash_code() << ") " << index..name() << " ADDED: " << typeid(T).name() << std::endl;
 
 			components.insert(std::pair<std::type_index, Component*>(
 				std::type_index(typeid(T)),
