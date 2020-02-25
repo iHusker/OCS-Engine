@@ -32,7 +32,7 @@ public:
 		if (component->Link())
 		{
 
-			std::cout << "(" << index.hash_code() << ") " << index..name() << " ADDED: " << typeid(T).name() << std::endl;
+			std::cout << "(" << index.hash_code() << ") " << index.name() << " ADDED: " << typeid(T).name() << std::endl;
 
 			components.insert(std::pair<std::type_index, Component*>(
 				std::type_index(typeid(T)),
