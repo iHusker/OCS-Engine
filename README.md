@@ -1,2 +1,2 @@
 # OCS Engine
- Object Component System
+A simple Object Component System for 2D game development.
