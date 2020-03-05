@@ -1,5 +1,4 @@
 #pragma once
-#include "Resource.h"
 #include "Component.h"
 
 class Object

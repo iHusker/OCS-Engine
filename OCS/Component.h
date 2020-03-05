@@ -1,7 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <SDL.h>
+#include "Resource.h"
 
 class Object;
 
@@ -13,5 +12,4 @@ public:
 	virtual void Render(SDL_Renderer * renderer) {}
 	virtual void Process(float deltaTime) {}
 	virtual bool Link() { return false; }
-	virtual std::string Error() { return "NULL"; };
 };

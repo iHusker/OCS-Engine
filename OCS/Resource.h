@@ -6,8 +6,15 @@
 #include <vector>
 #include <typeindex>
 
+//SDL
 #include <SDL.h>
 #include <SDL_image.h>
+
+//BOX2D
+#include <b2_body.h>
+#include <b2_world.h>
+#include <b2_fixture.h>
+#include <b2_polygon_shape.h>
 
 extern const int WINDOW_WIDTH;
 extern const int WINDOW_HEIGHT;

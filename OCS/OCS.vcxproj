@@ -74,11 +74,11 @@
     <LibraryPath>$(ProjectDir)/Dependencies/SDL/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)/Dependencies/SDL/include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)/Dependencies/Box2D/include/;$(ProjectDir)/Dependencies/SDL/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)/Dependencies/SDL/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)/Dependencies/SDL/include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)/Dependencies/Box2D/include/;$(ProjectDir)/Dependencies/SDL/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)/Dependencies/SDL/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -144,8 +144,10 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="PhysicsBodyComponent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="TransformComponent.h" />
   </ItemGroup>

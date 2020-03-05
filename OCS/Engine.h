@@ -1,12 +1,6 @@
 #pragma once
 
-#include "Resource.h"
-#include "Player.h"
-
-
-//Components
-#include "TransformComponent.h"
-#include "SpriteComponent.h"
+#include "Scene.h"
 
 class Engine 
 {
@@ -25,24 +19,20 @@ public:
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 		SDL_UpdateWindowSurface(window);
 		SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
-
-		objects.push_back(new Player(renderer));
+		
+		scene = new Scene(renderer, typeid(Scene));
 	}
 
-	void Render() {
-
-		SDL_RenderClear(renderer);
-
-		for (auto& object : objects) object->Render(renderer);
-
-		SDL_RenderPresent(renderer);
+	void Render()
+	{
+		scene->Render(renderer);
 	}
 	
 	void Process() {
 		lastFrame = currentFrame;
 		currentFrame = SDL_GetPerformanceCounter();
 
-		for (auto& object : objects) object->Process((currentFrame - lastFrame) / (float)SDL_GetPerformanceFrequency());
+		scene->Process((currentFrame - lastFrame) / (float)SDL_GetPerformanceFrequency());
 	}
 
 	void Listen() {
@@ -70,7 +60,7 @@ private:
 	Uint64 currentFrame = 0;
 	Uint64 lastFrame = 0;
 
-	std::vector<Object*> objects;
+	Scene* scene;
 
 	SDL_Renderer* renderer = nullptr;
 	SDL_Window* window = nullptr;

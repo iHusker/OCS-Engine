@@ -46,10 +46,6 @@ public:
 		SDL_RenderCopyEx(renderer, texture, &source, &destination, angle, NULL, flip);
 	}
 
-	std::string Error() override {
-		return "Object Requires TransformComponent to add SpriteComponent.";
-	}
-
 private:
 	TransformComponent* transform;
 	SDL_Texture* texture;
